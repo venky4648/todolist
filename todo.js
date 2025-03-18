@@ -82,7 +82,7 @@ function onDeleteTodo(todoId) {
     todoList.splice(deleteElementIndex, 1);
   }
 
-  // Update local storage after deletion
+  
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
