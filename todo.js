@@ -75,14 +75,15 @@ function onDeleteTodo(todoId) {
 
   let deleteElementIndex = todoList.findIndex(function(eachTodo) {
     let eachTodoId = "todo" + eachTodo.uniqueNo;
-    if (eachTodoId === todoId) {
-      return true;
-    } else {
-      return false;
-    }
+    return eachTodoId === todoId;
   });
 
-  todoList.splice(deleteElementIndex, 1);
+  if (deleteElementIndex !== -1) {
+    todoList.splice(deleteElementIndex, 1);
+  }
+
+  // Update local storage after deletion
+  localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
 function createAndAppendTodo(todo) {
